@@ -1,0 +1,18 @@
+# .gitignore
+
+# Virtual environment
+env/
+
+# SQLite database
+instance/
+instance/task.db
+
+# Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+logs/
+
+

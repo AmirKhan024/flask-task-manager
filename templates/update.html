@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block body %}   
+<div class="container my-3">
+    <h2>Update Task</h2>
+    <form action="/update/{{allTask.taskId}}" method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">Task Name</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{allTask.taskName}}" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Task Description</label>
+            <input type="text" class="form-control" name="desc" value="{{allTask.taskDesc}}" id="desc">
+        </div>
+        <button type="submit" class="btn btn-dark">Update</button>
+    </form>
+</div>
+<div class="container my-2">
+    {% with messages=get_flashed_messages(with_categories=true)%}
+        {% if messages %}
+            {% for category,message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+</div>
+{% endblock body %}
